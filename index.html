@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Docker Swarm Counter</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f8f9fa;
+        color: #333;
+        text-align: center;
+        padding: 50px;
+      }
+      h1 {
+        color: #0073e6;
+      }
+      .box {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+      }
+      pre {
+        text-align: left;
+        background: #eee;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>🚀 Docker Swarm Counter</h1>
+      <p>A demo project using <b>Flask + Redis</b> deployed in Docker Swarm.</p>
+
+      <h2>How it works</h2>
+      <ul style="text-align: left">
+        <li><b>Web:</b> Python Flask app, scaled with replicas</li>
+        <li><b>Redis:</b> Shared cache storing page-view counter</li>
+      </ul>
+
+      <h2>Run it locally</h2>
+      <pre>
+git clone https://github.com/SobikaSobi/docker-swarm-counter.git
+cd docker-swarm-counter
+docker build -t counter:1.0 ./app
+docker swarm init
+docker stack deploy -c docker-compose.yml counter
+    </pre
+      >
+
+      <p>
+        👉
+        <a href="https://github.com/SobikaSobi/docker-swarm-counter"
+          >View Source on GitHub</a
+        >
+      </p>
+    </div>
+  </body>
+</html>
