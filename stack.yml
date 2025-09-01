@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  web:
+    image: counter:1.0
+    # If using a registry image for multi-node, change to: yourname/counter:1.0
+    ports:
+      - "8080:5000"
+    environment:
+      - REDIS_HOST=redis
+    networks:
+      - appnet
+    deploy:
+      mode: replicated
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+      update_config:
+        parallelism: 1
+        delay: 5s
+        order: start-first
+
+  redis:
+    image: redis:7-alpine
+    networks:
+      - appnet
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+networks:
+  appnet:
+    driver: overlay
